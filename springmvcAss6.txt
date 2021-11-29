@@ -1,0 +1,48 @@
+Q.7
+ZipCode.java
+
+package com.practice.entities;import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import javax.validation.Constraint;
+import javax.validation.Payload;@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = ZipValidation.class)
+public @interface ZipCode {
+String message() default "Zip code and City doesn't match";
+Class<?>[] groups() default {};
+Class<? extends Payload>[] payload() default {};
+}
+
+
+
+ZipValidation.java
+
+package com.practice.entities;
+
+
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+
+
+public class ZipValidation implements ConstraintValidator<ZipCode, LoginData>{
+
+
+
+@Override
+public boolean isValid(LoginData user, ConstraintValidatorContext context) {
+if(user.getCity().equals("Mumbai")&& user.getZip().equals("400001")||
+user.getCity().equals("Pune")&& user.getZip().equals("411000")||
+user.getCity().equals("Gandhinagar")&& user.getZip().equals("382002"))
+return true;
+
+else {
+return false;
+}
+}
+}
+
+

@@ -1,0 +1,72 @@
+HELLO.JAVA
+package com.springmvc_assign;
+
+
+	import org.springframework.stereotype.Controller;
+	import org.springframework.web.bind.annotation.RequestMapping;
+	import org.springframework.web.bind.annotation.RequestMethod;
+
+	@Controller
+	public class hello {
+
+
+		@RequestMapping(value ="/login1", method = RequestMethod.GET)
+		public String LoginPage() {
+			return "index";
+		}
+	}
+
+
+
+HelloWorldController
+
+package com.springmvc_assign;
+
+
+	import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+public class HelloWorldController {
+	@RequestMapping(value = "/login2", method = RequestMethod.GET)
+	public String LoginPage() {
+		return "helloworld";
+	}
+}
+
+
+
+Index.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+</head>
+<body>
+<br><i><a href="/login2" >Hello</a></i>
+
+</body>
+</html>
+
+
+
+
+helloworld.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>hello</title>
+</head>
+<body>
+<h1>Hello World</h1>
+</body>
+</html>
